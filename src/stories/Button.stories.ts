@@ -1,8 +1,8 @@
+import { Button } from '@/shared/ui/Button';
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
 import { fn } from 'storybook/test';
 
-import { Button } from '../app/shared/ui/Button';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {

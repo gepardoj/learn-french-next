@@ -1,4 +1,4 @@
-import { ButtonProps } from "@/app/shared/ui/Button";
+import { ButtonProps } from "@/shared/ui/Button";
 import { SVGProps } from "react";
 
 export interface ButtonIconProps extends Omit<ButtonProps, "label"> {
@@ -8,13 +8,13 @@ export interface ButtonIconProps extends Omit<ButtonProps, "label"> {
 
 const getClass = (props: ButtonIconProps) => {
   let className = "";
-  if (props.disabled) className += " stroke-disabled";
+  if (props.disabled) className += " stroke-disabled fill-disabled";
   else
     switch (props.type) {
-      case "primary": className += " stroke-primary"; break;
-      case "success": className += " stroke-success"; break;
-      case "error": className += " stroke-error"; break;
-      default: className += " stroke-default"; break;
+      case "primary": className += " stroke-primary fill-primary"; break;
+      case "success": className += " stroke-success fill-success"; break;
+      case "error": className += " stroke-error fill-error"; break;
+      default: className += " stroke-default fill-default"; break;
     }
   switch (props.size) {
     case "small": className += " w-4 h-4"; break;
@@ -35,7 +35,7 @@ export const ButtonIcon = (props: ButtonIconProps) => {
   return (
     <button
       type="button"
-      className={getClass(props)}
+      className={getClass({ ...props, size })}
       {...other}
     >
       {<Icon />}

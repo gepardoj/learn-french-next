@@ -3,7 +3,7 @@ import { Button } from "@/shared/ui/Button";
 
 export default function Home() {
   return (
-    <section className="flex flex-[0.3] flex-col justify-center gap-3">
+    <section className="m-2 flex flex-[0.3] flex-col justify-center gap-3">
       <h1 className="text-3xl text-center">Learn French</h1>
       <ClientComponent />
       {/* <Button

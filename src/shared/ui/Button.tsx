@@ -26,11 +26,11 @@ const getClass = (props: ButtonProps) => {
 
 /** Primary UI component for user interaction */
 export const Button = (props: ButtonProps) => {
-  const { type, label, ...other } = props;
+  const { type, label, size = "medium", ...other } = props;
   return (
     <button
       type="button"
-      className={getClass(props)}
+      className={getClass({ ...props, size })}
       {...other}
     >
       {label}

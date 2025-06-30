@@ -1,5 +1,5 @@
-import EiffelTowerIcon from "@/icons/EiffelTowerIcon";
-import { ButtonIcon } from "@/app/shared/ui/ButtonIcon";
+import EiffelTowerIcon from "@/shared/ui/icons/EiffelTowerIcon";
+import { ButtonIcon } from "@/shared/ui/ButtonIcon";
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
 import { fn } from 'storybook/test';
