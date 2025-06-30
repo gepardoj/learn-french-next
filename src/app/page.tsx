@@ -1,5 +1,5 @@
 import ClientComponent from "@/app/ClientComponent";
-import { Button } from "@/stories/Button";
+import { Button } from "@/shared/ui/Button";
 
 export default function Home() {
   return (

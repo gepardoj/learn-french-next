@@ -1,12 +1,9 @@
+import { ButtonProps } from "@/app/shared/ui/Button";
 import { SVGProps } from "react";
 
-export interface ButtonIconProps {
-  type?: "primary" | "error" | "success" | "default";
-  size?: 'small' | 'medium' | 'large';
+export interface ButtonIconProps extends Omit<ButtonProps, "label"> {
   Icon: (props: SVGProps<any>) => React.JSX.Element;
   alt: string;
-  disabled?: boolean;
-  onClick?: () => void;
 }
 
 const getClass = (props: ButtonIconProps) => {
@@ -33,13 +30,13 @@ export const ButtonIcon = (props: ButtonIconProps) => {
     type,
     size = 'medium',
     Icon,
-    ...otherProps
+    ...other
   } = props;
   return (
     <button
       type="button"
       className={getClass(props)}
-      {...otherProps}
+      {...other}
     >
       {<Icon />}
     </button>

@@ -1,5 +1,5 @@
 "use client";
-import { Button } from '@/stories/Button';
+import { Button } from '@/shared/ui/Button';
 import React from 'react';
 
 export default function ClientComponent() {
