@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Learn French",
   description: "Learn French",
+  icons: "/eiffel-tower.svg",
 };
 
 export const viewport: Viewport = {
