@@ -1,6 +1,5 @@
 "use client";
-import { words } from '@/features/quiz/model/general.words';
-import { MAX_ROOM, quizModel, WORDS_IN_ROOM } from '@/features/quiz/model/QuizModel';
+import { MAX_ROOM, QuizEntity, quizModel, WORDS_IN_ROOM } from '@/features/quiz/model/QuizModel';
 import { Button } from '@/shared/ui/Button';
 import { ButtonIcon } from '@/shared/ui/ButtonIcon';
 import CloseIcon from '@/shared/ui/icons/CloseIcon';
@@ -8,7 +7,12 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
 type ConfirmButtonState = "check" | "error" | "success";
 
-export default function Quiz() {
+type QuizProps = {
+  quiz: QuizEntity;
+};
+
+export default function Quiz(props: QuizProps) {
+  const { quiz } = props;
 
   const [room, setRoom] = useState(0);
   // let percentAnswered = 5;
@@ -17,7 +21,7 @@ export default function Quiz() {
   const [questionState, setQuestionState] = useState<ConfirmButtonState>("check");
   const [variants, setVariants] = useState<string[][]>([]);
 
-  const sortedWords = useMemo(() => words.toSorted(() => (Math.random() > 0.5 ? 1 : -1)), [words]);
+  const sortedWords = useMemo(() => quiz.words.toSorted(() => (Math.random() > 0.5 ? 1 : -1)), [quiz.words]);
 
   const close = () => {
     quizModel.close();
