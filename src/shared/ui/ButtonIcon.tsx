@@ -10,7 +10,7 @@ const getClass = (props: ButtonIconProps) => {
   let className = "";
   if (props.disabled) className += " stroke-disabled fill-disabled";
   else
-    switch (props.type) {
+    switch (props.variant) {
       case "primary": className += " stroke-primary fill-primary"; break;
       case "success": className += " stroke-success fill-success"; break;
       case "error": className += " stroke-error fill-error"; break;
@@ -27,7 +27,7 @@ const getClass = (props: ButtonIconProps) => {
 /** Primary UI component for user interaction */
 export const ButtonIcon = (props: ButtonIconProps) => {
   const {
-    type,
+    variant: type,
     size = 'medium',
     Icon,
     ...other

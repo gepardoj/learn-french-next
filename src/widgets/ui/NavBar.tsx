@@ -18,7 +18,7 @@ export default function NavBar() {
     <nav className="mt-auto">
       <ul className='flex gap-5 justify-center'>
         {links.map(link =>
-          <li key={link.href}><Link href={link.href}><ButtonIcon Icon={link.icon} size="large" alt={link.label} type={pathname === link.href ? "primary" : "default"} /></Link></li>
+          <li key={link.href}><Link href={link.href}><ButtonIcon Icon={link.icon} size="large" alt={link.label} variant={pathname === link.href ? "primary" : "default"} /></Link></li>
         )}
       </ul>
     </nav>

@@ -1,8 +1,10 @@
+"use client";
 export interface ButtonProps {
-  type?: "primary" | "error" | "success" | "default";
+  variant?: "primary" | "error" | "success" | "default";
   size?: 'small' | 'medium' | 'large';
   label: string;
   disabled?: boolean;
+  className?: string;
   onClick?: () => void;
 }
 
@@ -10,7 +12,7 @@ const getClass = (props: ButtonProps) => {
   let className = "border-2 px-3 py-1";
   if (props.disabled) className += " border-disabled text-disabled";
   else
-    switch (props.type) {
+    switch (props.variant) {
       case "primary": className += " border-primary text-primary bg-primary-bg"; break;
       case "success": className += " border-success text-success bg-success-bg"; break;
       case "error": className += " border-error text-error bg-error-bg"; break;
@@ -26,11 +28,11 @@ const getClass = (props: ButtonProps) => {
 
 /** Primary UI component for user interaction */
 export const Button = (props: ButtonProps) => {
-  const { type, label, size = "medium", ...other } = props;
+  const { variant, label, size = "medium", className, ...other } = props;
   return (
     <button
       type="button"
-      className={getClass({ ...props, size })}
+      className={className + " " + getClass({ ...props, size })}
       {...other}
     >
       {label}

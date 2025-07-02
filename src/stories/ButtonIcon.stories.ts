@@ -20,7 +20,7 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   name: "Primary large",
   args: {
-    type: "primary",
+    variant: "primary",
     size: "large",
     alt: "Eiffel Tower",
     Icon: EiffelTowerIcon,
