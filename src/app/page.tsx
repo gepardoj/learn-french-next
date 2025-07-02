@@ -5,7 +5,7 @@ import { Button } from "@/shared/ui/Button";
 import { observer } from "mobx-react-lite";
 
 const Home = observer(() => {
-  if (quizModel.state === "in_game") return <Quiz />;
+  if (quizModel.state === "in_quiz") return <Quiz />;
   if (quizModel.state === "result") return null;
   return (
     <section className="m-2 flex flex-[0.3] flex-col justify-center gap-3">

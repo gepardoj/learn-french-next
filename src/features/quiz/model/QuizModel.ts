@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
 
-export type State = "home" | "in_game" | "result";
+export type State = "home" | "in_quiz" | "result";
 export type Difficulty = "easy" | "medium" | "hard";
 
 export const MAX_ROOM = 10 as const;
@@ -16,7 +16,7 @@ class Store {
 
   constructor() { makeAutoObservable(this); }
 
-  start = (diff: Difficulty) => { this._state = "in_game"; this._difficulty = diff; };
+  start = (diff: Difficulty) => { this._state = "in_quiz"; this._difficulty = diff; };
   close = () => { this._state = "home"; };
   finish = (errors: number) => { this._state = "result"; this._errors = errors; };
 }

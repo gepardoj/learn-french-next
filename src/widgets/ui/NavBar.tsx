@@ -1,19 +1,22 @@
 "use client";
+import { quizModel } from '@/features/quiz/model/QuizModel';
 import { ButtonIcon } from '@/shared/ui/ButtonIcon';
 import AccountIcon from '@/shared/ui/icons/AccountIcon';
 import EiffelTowerIcon from '@/shared/ui/icons/EiffelTowerIcon';
 import OptionsIcon from '@/shared/ui/icons/OptionsIcon';
+import { observer } from 'mobx-react-lite';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
 
-export default function NavBar() {
+const NavBar = observer(() => {
   const pathname = usePathname();
   const links = [
     { href: "/", icon: EiffelTowerIcon, label: "Learn French" },
     { href: "/profile", icon: AccountIcon, label: "My Profile" },
     { href: "/options", icon: OptionsIcon, label: "Options" },
   ];
+  if (quizModel.state === "in_quiz") return null;
   return (
     <nav className="mt-auto">
       <ul className='flex gap-5 justify-center'>
@@ -23,4 +26,6 @@ export default function NavBar() {
       </ul>
     </nav>
   );
-}
+});
+
+export default NavBar;
