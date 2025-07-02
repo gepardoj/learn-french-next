@@ -13,6 +13,7 @@ class Store {
 
   get state() { return this._state; }
   get difficulty() { return this._difficulty; }
+  get errors() { return this._errors; }
 
   constructor() { makeAutoObservable(this); }
 

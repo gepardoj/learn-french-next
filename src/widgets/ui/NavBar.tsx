@@ -16,7 +16,7 @@ const NavBar = observer(() => {
     { href: "/profile", icon: AccountIcon, label: "My Profile" },
     { href: "/options", icon: OptionsIcon, label: "Options" },
   ];
-  if (quizModel.state === "in_quiz") return null;
+  if (quizModel.state !== "home") return null;
   return (
     <nav className="mt-auto">
       <ul className='flex gap-5 justify-center'>
