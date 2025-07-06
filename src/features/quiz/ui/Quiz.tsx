@@ -1,5 +1,6 @@
 "use client";
 import { MAX_ROOM, QuizEntity, quizModel, WORDS_IN_ROOM } from '@/features/quiz/model/QuizModel';
+import BottomSlide from '@/shared/ui/BottomSlide';
 import { Button } from '@/shared/ui/Button';
 import { ButtonIcon } from '@/shared/ui/ButtonIcon';
 import CloseIcon from '@/shared/ui/icons/CloseIcon';
@@ -50,6 +51,7 @@ export default function Quiz(props: QuizProps) {
     setQuestionState("check");
   };
   const questionFr = (i: number) => sortedWords[i * WORDS_IN_ROOM][0];
+  const answerFr = (i: number) => sortedWords[i * WORDS_IN_ROOM][1];
   const variant = (i: number) => variants[i][1];
   const sortFor4Variants = (sortedWords: string[][], i: number) =>
     sortedWords
@@ -84,6 +86,7 @@ export default function Quiz(props: QuizProps) {
             label={variant(i)}
           />)
         }
+        {questionState === "error" && <BottomSlide variant='error' title='Wrong. The answer is...' body={answerFr(room)} />}
         <Button
           className="mt-auto"
           onClick={continueQuiz}
