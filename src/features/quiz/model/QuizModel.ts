@@ -1,5 +1,6 @@
 import { fantasy } from "@/features/quiz/model/fantasy.words";
 import { general } from "@/features/quiz/model/general.words";
+import { savanna } from "@/features/quiz/model/savanna.words";
 import { makeAutoObservable } from "mobx";
 
 export type State = "home" | "in_quiz" | "result";
@@ -32,6 +33,6 @@ class Store {
   finish = (errors: number) => { this._state = "result"; this._errors = errors; };
 }
 
-export const availableQuizes = [general, fantasy,];
+export const availableQuizes = [general, savanna, fantasy,];
 
 export const quizModel = new Store();

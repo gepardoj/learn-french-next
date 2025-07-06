@@ -73,11 +73,6 @@ export const general: QuizEntity = {
       ["une vache", "a cow"],
       ["un poulet", "a chicken"],
       ["un/une cochon", "a pig"],
-      ["un guépard", "a cheetah"],
-      ["une girafe", "a giraffe"],
-      ["un éléphant", "an elephant"],
-      ["un serpent", "a snake"],
-      ["une araignée", "a spider"],
       ["une mouche", "a fly"],
       ["un moustique", "a mosquito"],
 

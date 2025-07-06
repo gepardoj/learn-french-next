@@ -18,7 +18,7 @@ const NavBar = observer(() => {
   ];
   if (quizModel.state !== "home") return null;
   return (
-    <nav className="mt-auto">
+    <nav className="mt-auto bg-primary-bg pt-2">
       <ul className='flex gap-5 justify-center'>
         {links.map(link =>
           <li key={link.href}><Link href={link.href}><ButtonIcon Icon={link.icon} size="large" alt={link.label} variant={pathname === link.href ? "primary" : "default"} /></Link></li>

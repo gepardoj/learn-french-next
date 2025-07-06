@@ -11,16 +11,18 @@ const Home = observer(() => {
   if (quizModel.state === "in_quiz" && selectedQuiz) return <Quiz quiz={selectedQuiz} />;
   if (quizModel.state === "result") return <QuizResult />;
   return (
-    <section className="m-2 flex flex-[0.3] flex-col justify-center items-center gap-3">
-      <h1 className="text-3xl text-center">Learn French</h1>
-      {availableQuizes.map(quiz =>
-        <ButtonCard key={quiz.name} onClick={() => {
-          setSelectedQuiz(quiz);
-          quizModel.start("easy");
-        }} src={quiz.img} alt={quiz.name} size="large" />
+    <>
+      <h1 className="text-3xl text-center my-3">Learn French</h1>
+      <section className="m-2 flex flex-1 overflow-y-auto flex-col items-center gap-3">
+        {availableQuizes.map(quiz =>
+          <ButtonCard key={quiz.name} onClick={() => {
+            setSelectedQuiz(quiz);
+            quizModel.start("easy");
+          }} src={quiz.img} alt={quiz.name} size="large" />
 
-      )}
-    </section>
+        )}
+      </section>
+    </>
   );
 });
 
