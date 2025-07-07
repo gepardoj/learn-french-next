@@ -1,10 +1,11 @@
 "use client";
+import { ANIMATION_TIME_MS } from '@/app/globals';
 import { MAX_ROOM, QuizEntity, quizModel, WORDS_IN_ROOM } from '@/features/quiz/model/QuizModel';
 import BottomSlide from '@/shared/ui/BottomSlide';
 import { Button } from '@/shared/ui/Button';
 import { ButtonIcon } from '@/shared/ui/ButtonIcon';
 import CloseIcon from '@/shared/ui/icons/CloseIcon';
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 type ConfirmButtonState = "check" | "error" | "success";
 
@@ -23,6 +24,8 @@ export default function Quiz(props: QuizProps) {
   const [variants, setVariants] = useState<string[][]>([]);
 
   const sortedWords = useMemo(() => quiz.words.toSorted(() => (Math.random() > 0.5 ? 1 : -1)), [quiz.words]);
+
+  const pageRef = useRef<HTMLElement | null>(null);
 
   const close = () => {
     quizModel.close();
@@ -68,6 +71,10 @@ export default function Quiz(props: QuizProps) {
       return;
     }
     setVariants(sortFor4Variants(sortedWords, room));
+    pageRef.current?.classList.add("animate-slide-right");
+    setTimeout(() => {
+      pageRef.current?.classList.remove("animate-slide-right");
+    }, ANIMATION_TIME_MS);
   }, [room]);
 
   return (
@@ -76,7 +83,7 @@ export default function Quiz(props: QuizProps) {
         <ButtonIcon onClick={close} Icon={CloseIcon} alt="Close" />
         {/* <ProgressBar percent={percentAnswered} /> */}
       </div>
-      <section className="m-4 flex flex-1 mt-10 flex-col justify-center gap-3">
+      <section ref={pageRef} className="m-4 flex flex-1 mt-10 flex-col justify-center gap-3">
         <h2 className="text-3xl text-center">{questionFr(room)}</h2>
         {variants.map((_, i) =>
           <Button

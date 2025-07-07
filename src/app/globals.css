@@ -12,7 +12,7 @@
   --default: hsl(37, 0%, 30%);
   --default-bg: hsl(37, 0%, 90%);
 
-  --animation-speed: 0.25s;
+  --animation-time: 0.25s;
 }
 
 @theme inline {
@@ -50,6 +50,20 @@ body {
   }
 }
 
+@keyframes slide-right {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
 .animate-slide-up {
-  animation: slide-up var(--animation-speed) ease-out forwards;
+  animation: slide-up var(--animation-time) ease-out forwards;
+}
+
+.animate-slide-right {
+  animation: slide-right var(--animation-time) ease-out forwards;
 }

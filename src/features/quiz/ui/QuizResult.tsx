@@ -15,10 +15,10 @@ const QuizResult = observer(() => {
   const percent = ((MAX_ROOM - quizModel.errors) / MAX_ROOM) * 100;
 
   return (
-    <section className="m-4 flex flex-1 flex-col justify-center gap-3">
+    <section className="m-4 flex flex-1 flex-col justify-center gap-3 animate-slide-right">
       <h1 className="text-3xl text-center">{textByPercent(percent)}</h1>
       <h2 className="text-xl text-center">You answered {percent}% correctly</h2>
-      <Button onClick={quizModel.close} className="mt-auto" label="Finish" />
+      <Button onClick={quizModel.close} variant='primary' className="mt-auto" label="Finish" />
     </section>
   );
 });

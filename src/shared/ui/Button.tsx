@@ -9,14 +9,14 @@ export interface ButtonProps {
 }
 
 const getClass = (props: ButtonProps) => {
-  let className = "border-2 px-3 py-1";
+  let className = "border-2 rounded-sm px-3 py-1";
   if (props.disabled) className += " border-disabled text-disabled";
   else
     switch (props.variant) {
-      case "primary": className += " border-primary text-primary bg-primary-bg"; break;
-      case "success": className += " border-success text-success bg-success-bg"; break;
-      case "error": className += " border-error text-error bg-error-bg"; break;
-      default: className += " border-default text-default bg-default-bg"; break;
+      case "primary": className += " border-transparent text-white bg-primary"; break;
+      case "success": className += " border-transparent text-white bg-success"; break;
+      case "error": className += " border-transparent text-white bg-error"; break;
+      default: className += " border-transparent text-default bg-default-bg"; break;
     }
   switch (props.size) {
     case "small": className += " text-xs"; break;
